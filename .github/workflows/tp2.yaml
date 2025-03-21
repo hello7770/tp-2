@@ -20,9 +20,13 @@ jobs:
           distribution: 'temurin' 
           java-version: '17'
 
+      - name: Print Working Directory
+        run: Get-Location
+        shell: pwsh
+        
       - name: Build and test with Maven
         run: mvn clean install -DskipTests=false
-        working-directory: ${{ github.workspace }}/tp-2
+        working-directory: ${{ github.workspace }} 
         
       - name: Archive JAR
         uses: actions/upload-artifact@v4
