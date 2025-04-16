@@ -1,38 +1,32 @@
 name: Simple CI/CD for Spring Boot
 
 on:
-  push:
-    branches:
-      - master
+push:
+branches:
+- master
 
 jobs:
-  build:
-    runs-on: windows-latest
+build:
+runs-on: windows-latest
 
-    steps:
-      
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-  
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin' 
-          java-version: '17'
+steps:
+- name: Checkout code
+uses: actions/checkout@v4
 
-      - name: Print Working Directory
-        run: Get-Location
-        shell: pwsh
-        
-      - name: Build and test with Maven
-        run: mvn clean install -DskipTests=false
-        working-directory: ${{ github.workspace }} 
-        
-      - name: Archive JAR
-        uses: actions/upload-artifact@v4
-        with:
-          name: spring-boot-app
-          path: target/*.jar
+- name: Set up JDK 17
+uses: actions/setup-java@v4
+with:
+java-version: '17'
+distribution: 'temurin'
 
-      - name: Print success message
-        run: echo "Buil
+- name: Build and test with Maven
+run: mvn clean install -DskipTests=false
+
+- name: Archive JAR
+uses: actions/upload-artifact@v4
+with:
+name: spring-boot-app
+path: target/*.jar
+
+- name: Print success message
+run: echo "Build and tests completed successfully!"
