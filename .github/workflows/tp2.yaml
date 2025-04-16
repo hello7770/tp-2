@@ -21,12 +21,13 @@ jobs:
 
       - name: Build and test with Maven
         run: mvn clean install -DskipTests=false
+        working-directory: 'tp-2/demo (2)/demo' 
 
       - name: Archive JAR
         uses: actions/upload-artifact@v4
         with:
           name: spring-boot-app
-          path: target/*.jar
+          path: 'tp-2/demo (2)/demo/target/*.jar'
 
       - name: Print success message
         run: echo "Build and tests completed successfully!"
