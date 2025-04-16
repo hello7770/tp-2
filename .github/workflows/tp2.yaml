@@ -19,8 +19,11 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Verify Maven Java version
+        run: mvn --version
+
       - name: Build and test with Maven
-        run: mvn -Dmaven.compiler.release=17 clean install -DskipTests=false
+        run: mvn clean install -DskipTests=false
         working-directory: .github/workflows/demo
 
       - name: Archive JAR
