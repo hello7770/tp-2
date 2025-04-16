@@ -26,12 +26,13 @@
 		<tag/>
 		<url/>
 	</scm>
-	<properties>
-            <java.version>17</java.version>
-            <maven.compiler.source>17</maven.compiler.source>
-            <maven.compiler.target>17</maven.compiler.target>
+        <properties>
+             <java.version>17</java.version>
+             <maven.compiler.release>17</maven.compiler.release> <!-- Add this line -->
+             <maven.compiler.source>17</maven.compiler.source>
+             <maven.compiler.target>17</maven.compiler.target>
+             <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         </properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
