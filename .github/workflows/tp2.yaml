@@ -20,7 +20,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Build and test with Maven
-        run: mvn clean install -DskipTests=false -Dmaven.compiler.release=17
+        run: mvn -Dmaven.compiler.release=17 clean install -DskipTests=false
         working-directory: .github/workflows/demo
 
       - name: Archive JAR
